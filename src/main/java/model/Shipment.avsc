@@ -1,0 +1,56 @@
+{
+"name":"Shipment",
+"namespace":"repositories",
+"type":"record",
+"fields":
+[
+   {
+        "name":"shipmentId",
+        "type":"string"
+    },
+    {
+        "name":"pickupPlace",
+        "type":"string"
+    },
+    {
+        "name":"deliveryPlace",
+        "type":"string"
+    },
+    {
+        "name":"creationTime",
+        "type":"long"
+    },
+    {
+        "name":"shipmentNumber",
+        "type":"string"
+    },
+    {
+        "name":"transportationMode",
+        "type":"string"
+    },
+    {
+        "name":"shipmentTrackingStatus",
+        "type":"string"
+    },
+    {
+        "name":"edd",
+        "type":["null","string"],
+        "default":null
+    },
+    {
+        "name":"completionTime",
+        "type":["null","long"],
+        "default":null
+    },
+    {
+        "name":"externalShipmentId",
+        "type":["null","string"],
+        "default":null
+    },
+    {
+        "name":"shipmentType",
+        "type":["null","string"],
+        "default":null
+    }
+]
+}

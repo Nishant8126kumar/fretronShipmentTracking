@@ -1,0 +1,7 @@
+package repositories
+class ShipmentRepositoryShould
+{
+
+
+
+}
