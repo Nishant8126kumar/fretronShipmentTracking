@@ -35,9 +35,9 @@ class ShipmentService @Inject constructor(private val shipmentRepository: Shipme
         shipmentRepository.updateShipment(shipmentNumber,shipment)
     }
 
-    fun deleteShipment(shipmentNumber: String)
+    fun deleteShipment(shipmentNumber: String):String
     {
-        shipmentRepository.deleteShipment(shipmentNumber)
+       return shipmentRepository.deleteShipment(shipmentNumber)
     }
 
     fun countShipment():String

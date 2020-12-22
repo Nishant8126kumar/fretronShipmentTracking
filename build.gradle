@@ -48,15 +48,15 @@ dependencies {
 
     testCompile "org.glassfish.jersey.test-framework.providers:jersey-test-framework-provider-grizzly2:2.27"
 
-//    testCompile group: "de.flapdoodle.embed", name: "de.flapdoodle.embed.mongo", version: "2.0.0"
-
     // https://mvnrepository.com/artifact/de.flapdoodle.embed/de.flapdoodle.embed.mongo
     testCompile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '2.2.0'
+
+
+
     // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
-    compile "org.glassfish.hk2:hk2:2.5.0"
-    compile "org.glassfish.hk2:hk2-utils:2.5.0"
+
 
 
 }

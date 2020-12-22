@@ -56,7 +56,7 @@ class ShipmentResourceShould :JerseyTest() {
         println("response=:$response")
         val record=response.readEntity(String::class.java)
         shipmentNumber=JSONObject(record).get("shipmentNumber").toString()
-       Assert.assertNotNull(shipmentNumber)
+        Assert.assertNotNull(shipmentNumber)
     }
 
     @Test

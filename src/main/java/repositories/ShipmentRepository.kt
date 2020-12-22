@@ -46,7 +46,7 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
     }
 
 
-    @kotlin.jvm.Throws(Exception::class)
+    @Throws(Exception::class)
     fun updateShipment(shipmentNumber: String, shipment: Shipment): Shipment {
 
         val doc= Document.parse(shipment.toString()) ?: throw java.lang.Exception("Record not updated")
@@ -61,11 +61,10 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
     }
 
     fun deleteShipment(shipmentNumber: String): String {
-
         val basicDBObject=BasicDBObject()
         basicDBObject["shipmentNumber"] = shipmentNumber
         mongoCollection.deleteMany(basicDBObject)
-        return "deleted"
+        return shipmentNumber
 
     }
 

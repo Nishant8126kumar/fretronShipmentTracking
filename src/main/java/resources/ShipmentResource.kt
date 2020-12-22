@@ -51,7 +51,7 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
     fun deleteShipment(@PathParam("shipmentNumber") shipmentNumber: String): Response {
 
         val record=shipmentService.deleteShipment(shipmentNumber)
-        return Response.ok("Record Deleted Successfully").build()
+        return Response.ok("Record Deleted Successfully=:$record").build()
 
     }
 
