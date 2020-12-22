@@ -7,17 +7,18 @@ import javax.inject.Inject
 import javax.ws.rs.*
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.core.Response
-@Path("/apis.fretron.com/v1")
+@Path("/fretron/v1")
 class ShipmentResource @Inject constructor(private val shipmentService: ShipmentService,private val objectMapper: ObjectMapper) {
+
 
     @GET
     @Path("/shipment/{shipmentNumber}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     fun getShipmentByShipmentNumber(@PathParam("shipmentNumber") shipmentNumber: String): Response {
-        println("ok $shipmentNumber")
-        shipmentService.getShipmentByShipmentNumber(shipmentNumber)
-        return Response.ok("Welcome").build()
+        println("data $shipmentNumber")
+        val record=shipmentService.getShipmentByShipmentNumber(shipmentNumber)
+        return Response.ok(record.toString()).build()
     }
 
     @POST
@@ -25,20 +26,22 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     fun createNewShipment(request: String): Response {
+        println("Welcome")
         val shipment=objectMapper.readValue(request, Shipment::class.java)
         val record=shipmentService.createNewShipment(shipment)
-        return Response.ok(shipment.toString()).build()
+        return Response.ok(record.toString()).build()
     }
 
     @PUT
     @Path("/shipment/update/{shipmentNumber}")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    fun updateShipment(@PathParam("shipmentNumber") shipmentId: String,request: String): Response {
+    fun updateShipment(@PathParam("shipmentNumber") shipmentNumber: String,request: String): Response {
 
         val shipment=objectMapper.readValue(request,Shipment::class.java)
-        val record=shipmentService.updateShipment(shipmentId,shipment)
+        val record=shipmentService.updateShipment(shipmentNumber,shipment)
         return Response.ok(shipment.toString()).build()
+
     }
 
     @DELETE
@@ -48,7 +51,8 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
     fun deleteShipment(@PathParam("shipmentNumber") shipmentNumber: String): Response {
 
         val record=shipmentService.deleteShipment(shipmentNumber)
-        return Response.ok("Welcome").build()
+        return Response.ok("Record Deleted Successfully").build()
+
     }
 
     @GET
@@ -59,8 +63,9 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
         var data="count"
         return if (count)
         {
-            val count=shipmentService.countShipment()
-            Response.ok(data).toString()
+           val count= shipmentService.countShipment()
+            println("count=:$count")
+           return count
         }
         else {
           null

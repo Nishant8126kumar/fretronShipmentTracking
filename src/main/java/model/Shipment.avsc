@@ -34,7 +34,7 @@
     },
     {
         "name":"edd",
-        "type":["null","string"],
+        "type":["null","long"],
         "default":null
     },
     {

@@ -1,5 +1,6 @@
 package di
 
+import com.mongodb.client.MongoDatabase
 import dagger.Module
 import dagger.Provides
 import org.codehaus.jackson.map.ObjectMapper
@@ -11,8 +12,8 @@ import javax.inject.Named
 class ShipmentRepositoyModule {
 
     @Provides
-    fun provideShipmentRepository(objectMapper: ObjectMapper):ShipmentRepository
+    fun provideShipmentRepository(objectMapper: ObjectMapper,@Named("mongoDatabase") mongoDatabase: MongoDatabase):ShipmentRepository
     {
-        return ShipmentRepository(objectMapper)
+        return ShipmentRepository(objectMapper,mongoDatabase)
     }
 }

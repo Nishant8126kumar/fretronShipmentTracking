@@ -9,7 +9,7 @@ class ShipmentService @Inject constructor(private val shipmentRepository: Shipme
 
     fun createNewShipment(shipment: Shipment):Shipment
     {
-        if (shipment.getShipmentId()==null || shipment.getCreationTime()==null || shipment.getPickupPlace()==null || shipment.getDeliveryPlace()==null)
+        if (shipment.getShipmentId()==null ||  shipment.getPickupPlace()==null || shipment.getDeliveryPlace()==null)
         {
             throw Exception("require field not found")
         }
@@ -30,14 +30,14 @@ class ShipmentService @Inject constructor(private val shipmentRepository: Shipme
         }
     }
 
-    fun  updateShipment(shipmentId:String,shipment: Shipment)
+    fun  updateShipment(shipmentNumber:String,shipment: Shipment)
     {
-        shipmentRepository.updateShipment(shipmentId,shipment)
+        shipmentRepository.updateShipment(shipmentNumber,shipment)
     }
 
-    fun deleteShipment(shipmentId: String)
+    fun deleteShipment(shipmentNumber: String)
     {
-        shipmentRepository.deleteShipment(shipmentId)
+        shipmentRepository.deleteShipment(shipmentNumber)
     }
 
     fun countShipment():String

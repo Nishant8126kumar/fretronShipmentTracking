@@ -1,7 +1,4 @@
 package resources
-
-import com.nhaarman.mockito_kotlin.any
-import com.nhaarman.mockito_kotlin.whenever
 import component.DaggerTestComponet
 import component.TestComponet
 import helper.TestDataSource
@@ -10,16 +7,13 @@ import org.glassfish.jersey.server.ResourceConfig
 import org.glassfish.jersey.test.JerseyTest
 import org.junit.Assert
 import org.junit.Test
-import org.mockito.Mockito
-import services.ShipmentService
-import java.util.*
 import javax.ws.rs.client.Entity
 import javax.ws.rs.core.Application
 import javax.ws.rs.core.MediaType
 
 class ShipmentResourceShould :JerseyTest() {
 
-    private val baseUrl="/apis.fretron.com/v1"
+    private val baseUrl="/fretron/v1"
     lateinit var testComponet: TestComponet
     private val testDataSource=TestDataSource()
     lateinit var shipmentNumber:String
@@ -47,6 +41,9 @@ class ShipmentResourceShould :JerseyTest() {
         return_200status_after_testCreateNewShipment()
         val response=target("$baseUrl/shipment/$shipmentNumber").request().get()
         assert(response.status==200)
+        val record=response.readEntity(String::class.java)
+        val shipmentId=JSONObject(record).get("shipmentId")
+        Assert.assertNotNull(shipmentId)
     }
 
     @Test

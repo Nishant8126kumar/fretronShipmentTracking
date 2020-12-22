@@ -7,7 +7,7 @@ package repositories;
 @SuppressWarnings("all")
 @org.apache.avro.specific.AvroGenerated
 public class Shipment extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Shipment\",\"namespace\":\"repositories\",\"fields\":[{\"name\":\"shipmentId\",\"type\":\"string\"},{\"name\":\"pickupPlace\",\"type\":\"string\"},{\"name\":\"deliveryPlace\",\"type\":\"string\"},{\"name\":\"creationTime\",\"type\":\"long\"},{\"name\":\"shipmentNumber\",\"type\":\"string\"},{\"name\":\"transportationMode\",\"type\":\"string\"},{\"name\":\"shipmentTrackingStatus\",\"type\":\"string\"},{\"name\":\"edd\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"completionTime\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"externalShipmentId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"shipmentType\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"Shipment\",\"namespace\":\"repositories\",\"fields\":[{\"name\":\"shipmentId\",\"type\":\"string\"},{\"name\":\"pickupPlace\",\"type\":\"string\"},{\"name\":\"deliveryPlace\",\"type\":\"string\"},{\"name\":\"creationTime\",\"type\":\"long\"},{\"name\":\"shipmentNumber\",\"type\":\"string\"},{\"name\":\"transportationMode\",\"type\":\"string\"},{\"name\":\"shipmentTrackingStatus\",\"type\":\"string\"},{\"name\":\"edd\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"completionTime\",\"type\":[\"null\",\"long\"],\"default\":null},{\"name\":\"externalShipmentId\",\"type\":[\"null\",\"string\"],\"default\":null},{\"name\":\"shipmentType\",\"type\":[\"null\",\"string\"],\"default\":null}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
   @Deprecated public java.lang.CharSequence shipmentId;
   @Deprecated public java.lang.CharSequence pickupPlace;
@@ -16,7 +16,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
   @Deprecated public java.lang.CharSequence shipmentNumber;
   @Deprecated public java.lang.CharSequence transportationMode;
   @Deprecated public java.lang.CharSequence shipmentTrackingStatus;
-  @Deprecated public java.lang.CharSequence edd;
+  @Deprecated public java.lang.Long edd;
   @Deprecated public java.lang.Long completionTime;
   @Deprecated public java.lang.CharSequence externalShipmentId;
   @Deprecated public java.lang.CharSequence shipmentType;
@@ -31,7 +31,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * All-args constructor.
    */
-  public Shipment(java.lang.CharSequence shipmentId, java.lang.CharSequence pickupPlace, java.lang.CharSequence deliveryPlace, java.lang.Long creationTime, java.lang.CharSequence shipmentNumber, java.lang.CharSequence transportationMode, java.lang.CharSequence shipmentTrackingStatus, java.lang.CharSequence edd, java.lang.Long completionTime, java.lang.CharSequence externalShipmentId, java.lang.CharSequence shipmentType) {
+  public Shipment(java.lang.CharSequence shipmentId, java.lang.CharSequence pickupPlace, java.lang.CharSequence deliveryPlace, java.lang.Long creationTime, java.lang.CharSequence shipmentNumber, java.lang.CharSequence transportationMode, java.lang.CharSequence shipmentTrackingStatus, java.lang.Long edd, java.lang.Long completionTime, java.lang.CharSequence externalShipmentId, java.lang.CharSequence shipmentType) {
     this.shipmentId = shipmentId;
     this.pickupPlace = pickupPlace;
     this.deliveryPlace = deliveryPlace;
@@ -74,7 +74,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
     case 4: shipmentNumber = (java.lang.CharSequence)value$; break;
     case 5: transportationMode = (java.lang.CharSequence)value$; break;
     case 6: shipmentTrackingStatus = (java.lang.CharSequence)value$; break;
-    case 7: edd = (java.lang.CharSequence)value$; break;
+    case 7: edd = (java.lang.Long)value$; break;
     case 8: completionTime = (java.lang.Long)value$; break;
     case 9: externalShipmentId = (java.lang.CharSequence)value$; break;
     case 10: shipmentType = (java.lang.CharSequence)value$; break;
@@ -190,7 +190,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
   /**
    * Gets the value of the 'edd' field.
    */
-  public java.lang.CharSequence getEdd() {
+  public java.lang.Long getEdd() {
     return edd;
   }
 
@@ -198,7 +198,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
    * Sets the value of the 'edd' field.
    * @param value the value to set.
    */
-  public void setEdd(java.lang.CharSequence value) {
+  public void setEdd(java.lang.Long value) {
     this.edd = value;
   }
 
@@ -275,7 +275,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
     private java.lang.CharSequence shipmentNumber;
     private java.lang.CharSequence transportationMode;
     private java.lang.CharSequence shipmentTrackingStatus;
-    private java.lang.CharSequence edd;
+    private java.lang.Long edd;
     private java.lang.Long completionTime;
     private java.lang.CharSequence externalShipmentId;
     private java.lang.CharSequence shipmentType;
@@ -558,12 +558,12 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
     }
 
     /** Gets the value of the 'edd' field */
-    public java.lang.CharSequence getEdd() {
+    public java.lang.Long getEdd() {
       return edd;
     }
     
     /** Sets the value of the 'edd' field */
-    public repositories.Shipment.Builder setEdd(java.lang.CharSequence value) {
+    public repositories.Shipment.Builder setEdd(java.lang.Long value) {
       validate(fields()[7], value);
       this.edd = value;
       fieldSetFlags()[7] = true;
@@ -668,7 +668,7 @@ public class Shipment extends org.apache.avro.specific.SpecificRecordBase implem
         record.shipmentNumber = fieldSetFlags()[4] ? this.shipmentNumber : (java.lang.CharSequence) defaultValue(fields()[4]);
         record.transportationMode = fieldSetFlags()[5] ? this.transportationMode : (java.lang.CharSequence) defaultValue(fields()[5]);
         record.shipmentTrackingStatus = fieldSetFlags()[6] ? this.shipmentTrackingStatus : (java.lang.CharSequence) defaultValue(fields()[6]);
-        record.edd = fieldSetFlags()[7] ? this.edd : (java.lang.CharSequence) defaultValue(fields()[7]);
+        record.edd = fieldSetFlags()[7] ? this.edd : (java.lang.Long) defaultValue(fields()[7]);
         record.completionTime = fieldSetFlags()[8] ? this.completionTime : (java.lang.Long) defaultValue(fields()[8]);
         record.externalShipmentId = fieldSetFlags()[9] ? this.externalShipmentId : (java.lang.CharSequence) defaultValue(fields()[9]);
         record.shipmentType = fieldSetFlags()[10] ? this.shipmentType : (java.lang.CharSequence) defaultValue(fields()[10]);

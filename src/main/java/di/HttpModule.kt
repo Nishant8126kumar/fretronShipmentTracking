@@ -13,9 +13,9 @@ import javax.ws.rs.core.UriBuilder
 class HttpModule {
 
     @Provides
-    fun provideResourceConfig():ResourceConfig
+    fun provideResourceConfig(shipmentResource: ShipmentResource):ResourceConfig
     {
-        return ResourceConfig().register(ShipmentResource::class.java)
+        return ResourceConfig().register(shipmentResource)
     }
 
     @Provides

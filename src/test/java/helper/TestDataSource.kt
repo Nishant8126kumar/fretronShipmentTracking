@@ -5,34 +5,21 @@ import repositories.Shipment
 
 class TestDataSource {
     private val mapper=ObjectMapper()
-    fun getShipment():Shipment
+    fun getShipment(): Shipment
     {
-        val shipmentData="{\n"+
-            "    \"shipmentId\" : \"BKSY1563878\",\n" +
-            "    \"pickupPlace\" : \"Noida\",\n" +
-            "    \"deliveryPlace\" : \"Aligahr\",\n" +
-            "    \"creationTime\" : \"1608523720\",\n" +
-            "    \"shipmentNumber\" : \"1567289\",\n" +
-            "    \"transportationMode\" : \"ByRoad\",\n" +
-            "    \"shipmentTrackingStatus\" : \"Enroute For Pickup\",\n" +
-            "    \"edd\" : \"16098523720\",\n" +
-            "    \"completionTime\" : \"1690523720\",\n" +
-            "    \"externalShipmentId\" : \"null\",\n" +
-            "    \"shipmentType\" : \"null\"\n" +
-            "}"
-        val shipment2="{\n" +
-                "    \"shipmentId\" : \"BKSY1563878\",\n" +
+        val shipment3="{\n" +
+                "    \"shipmentId\" : \"a694dc04-5bef-4620-af69-b639bd2b3184\",\n" +
                 "    \"pickupPlace\" : \"Noida\",\n" +
-                "    \"deliveryPlace\" : \"Aligahr\",\n" +
-                "    \"creationTime\" : 1608523720.0,\n" +
+                "    \"deliveryPlace\" : \"Aligarh\",\n" +
+                "    \"creationTime\" :1608568710770,\n" +
                 "    \"shipmentNumber\" : \"1567289\",\n" +
                 "    \"transportationMode\" : \"ByRoad\",\n" +
                 "    \"shipmentTrackingStatus\" : \"Enroute For Pickup\",\n" +
-                "    \"edd\" : \"16098523720\",\n" +
-                "    \"completionTime\" : 1690523720.0,\n" +
+                "    \"edd\" :16098523720,\n" +
+                "    \"completionTime\" : 1690523720,\n" +
                 "    \"externalShipmentId\" : \"null\",\n" +
                 "    \"shipmentType\" : \"null\"\n" +
                 "}"
-        return mapper.readValue(shipment2, Shipment::class.java)
+        return mapper.readValue(shipment3, Shipment::class.java)
     }
 }
