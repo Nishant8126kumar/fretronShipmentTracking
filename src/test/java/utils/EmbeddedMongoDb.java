@@ -40,7 +40,6 @@ public class EmbeddedMongoDb {
             .build());
         process = executable.start();
     }
-
     public void stop() {
         process.stop();
     }

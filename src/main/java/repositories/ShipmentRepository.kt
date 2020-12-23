@@ -5,7 +5,6 @@ import com.mongodb.client.MongoDatabase
 import com.mongodb.util.JSON
 import org.bson.Document
 import org.codehaus.jackson.map.ObjectMapper
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -16,8 +15,6 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
     @Throws(java.lang.Exception::class)
     fun createNewShipment(shipment: Shipment): Shipment {
         val doc = org.bson.Document.parse(shipment.toString())
-        doc["creationTime"] = System.currentTimeMillis()
-        doc["shipmentId"] = UUID.randomUUID().toString()
         if (doc == null) {
             throw Exception("Shipment Not Created")
         } else {
@@ -48,7 +45,6 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
 
     @Throws(Exception::class)
     fun updateShipment(shipmentNumber: String, shipment: Shipment): Shipment {
-
         val doc= Document.parse(shipment.toString()) ?: throw java.lang.Exception("Record not updated")
         doc["shipmentNumber"] = shipmentNumber
         doc["creationTime"]=System.currentTimeMillis()
@@ -56,8 +52,7 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
         basicDBObject.put("shipmentNumber",shipmentNumber)
         val update=Document("\$set",doc)
         mongoCollection.findOneAndUpdate(basicDBObject,update)
-
-        return Shipment()
+        return shipment
     }
 
     fun deleteShipment(shipmentNumber: String): String {

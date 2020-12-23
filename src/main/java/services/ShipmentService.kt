@@ -3,17 +3,20 @@ package services
 import repositories.Shipment
 import repositories.ShipmentRepository
 import java.lang.Exception
+import java.util.*
 import javax.inject.Inject
 
 class ShipmentService @Inject constructor(private val shipmentRepository: ShipmentRepository) {
 
     fun createNewShipment(shipment: Shipment):Shipment
     {
-        if (shipment.getShipmentId()==null ||  shipment.getPickupPlace()==null || shipment.getDeliveryPlace()==null)
+        if (shipment.getShipmentNumber()==null || shipment.getPickupPlace()==null || shipment.getDeliveryPlace()==null)
         {
             throw Exception("require field not found")
         }
         else{
+            shipment.setShipmentId(UUID.randomUUID().toString())
+            shipment.setCreationTime(System.currentTimeMillis())
             return shipmentRepository.createNewShipment(shipment)
         }
     }

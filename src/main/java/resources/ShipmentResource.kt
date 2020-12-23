@@ -40,7 +40,7 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
 
         val shipment=objectMapper.readValue(request,Shipment::class.java)
         val record=shipmentService.updateShipment(shipmentNumber,shipment)
-        return Response.ok(shipment.toString()).build()
+        return Response.ok(record.toString()).build()
 
     }
 
@@ -63,9 +63,9 @@ class ShipmentResource @Inject constructor(private val shipmentService: Shipment
         var data="count"
         return if (count)
         {
-           val count= shipmentService.countShipment()
-            println("count=:$count")
-           return count
+           val shipmentcount= shipmentService.countShipment()
+            println("count=:$shipmentcount")
+           return shipmentcount
         }
         else {
           null
