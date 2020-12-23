@@ -14,7 +14,7 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
 
     @Throws(java.lang.Exception::class)
     fun createNewShipment(shipment: Shipment): Shipment {
-        val doc = org.bson.Document.parse(shipment.toString())
+        val doc = Document.parse(shipment.toString())
         if (doc == null) {
             throw Exception("Shipment Not Created")
         } else {
@@ -49,7 +49,7 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
         doc["shipmentNumber"] = shipmentNumber
         doc["creationTime"]=System.currentTimeMillis()
         val basicDBObject=BasicDBObject()
-        basicDBObject.put("shipmentNumber",shipmentNumber)
+        basicDBObject["shipmentNumber"] = shipmentNumber
         val update=Document("\$set",doc)
         mongoCollection.findOneAndUpdate(basicDBObject,update)
         return shipment
@@ -60,7 +60,6 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
         basicDBObject["shipmentNumber"] = shipmentNumber
         mongoCollection.deleteMany(basicDBObject)
         return shipmentNumber
-
     }
 
     fun countShipment(): String {
