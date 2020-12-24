@@ -1,0 +1,3 @@
+[submodule "Daggeruse-service"]
+	path = Daggeruse-service
+	url = https://github.com/Nishant8126kumar/Daggeruse-service.git

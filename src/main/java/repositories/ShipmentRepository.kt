@@ -3,6 +3,7 @@ package repositories
 import com.mongodb.BasicDBObject
 import com.mongodb.client.MongoDatabase
 import com.mongodb.util.JSON
+import exception.MongoDbException
 import org.bson.Document
 import org.codehaus.jackson.map.ObjectMapper
 import javax.inject.Inject
@@ -12,11 +13,11 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
 
     private val mongoCollection = mongoDatabase.getCollection("fretronShipment")
 
-    @Throws(java.lang.Exception::class)
+    @Throws(MongoDbException::class)
     fun createNewShipment(shipment: Shipment): Shipment {
         val doc = Document.parse(shipment.toString())
         if (doc == null) {
-            throw Exception("Shipment Not Created")
+            throw MongoDbException("Shipment Not Created")
         } else {
             mongoCollection.insertOne(doc)
             return shipment
@@ -24,7 +25,7 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
     }
 
 
-    @Throws(Exception::class)
+    @Throws(MongoDbException::class)
     fun getShipmentByShipmentNumber(shipmentNumber: String): Shipment {
         val basicDBObject = BasicDBObject()
         basicDBObject["shipmentNumber"] = shipmentNumber
@@ -38,14 +39,14 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
             println("data ok=:$data")
             return data
         } else {
-            throw Exception("No record found for this shipment Number $shipmentNumber")
+            throw MongoDbException("No record found on this shipment Number $shipmentNumber")
         }
     }
 
 
-    @Throws(Exception::class)
+    @Throws(MongoDbException::class)
     fun updateShipment(shipmentNumber: String, shipment: Shipment): Shipment {
-        val doc= Document.parse(shipment.toString()) ?: throw java.lang.Exception("Record not updated")
+        val doc= Document.parse(shipment.toString()) ?: throw MongoDbException("Record not updated")
         doc["shipmentNumber"] = shipmentNumber
         doc["creationTime"]=System.currentTimeMillis()
         val basicDBObject=BasicDBObject()
