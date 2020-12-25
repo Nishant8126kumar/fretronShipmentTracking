@@ -37,9 +37,16 @@ class ShipmentService @Inject constructor(private val shipmentRepository: Shipme
         }
     }
 
+    @Throws(ShipmentException::class)
     fun  updateShipment(shipmentNumber:String,shipment: Shipment)
     {
-        shipmentRepository.updateShipment(shipmentNumber,shipment)
+        if (shipmentNumber.isEmpty())
+        {
+            throw ShipmentException("ShipmentNumber not found $shipmentNumber")
+        }
+        else {
+            shipmentRepository.updateShipment(shipmentNumber, shipment)
+        }
     }
 
     fun deleteShipment(shipmentNumber: String):String
