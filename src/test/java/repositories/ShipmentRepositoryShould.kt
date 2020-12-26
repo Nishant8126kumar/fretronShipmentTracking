@@ -10,6 +10,7 @@ import org.junit.Before
 import org.junit.Test
 import utils.EmbeddedMongoDb
 import java.util.*
+import javax.ws.rs.core.MultivaluedHashMap
 
 
 class ShipmentRepositoryShould {
@@ -91,74 +92,3 @@ class ShipmentRepositoryShould {
     }
 
 }
-
-//lateinit var classunderTest: UserManagerRepository
-//private val testDataSource = TestDataSource()
-//lateinit var embeddedMongoDb: EmbeddedMongoDb
-//private lateinit var mongoDatabase: MongoDatabase
-//private val objectMapper= ObjectMapper()
-//private val uuid="07b06f91-284f-42ff-b33b-48c129fc7b3d"
-//
-//
-//
-//@Before
-//fun configure() {
-//
-//    startMongoDb()
-//    val mongoClient = MongoClient("localhost", embeddedMongoDb.port)
-//    mongoDatabase = mongoClient.getDatabase("EmployeeDetails")
-//    classunderTest= UserManagerRepository(mongoDatabase,objectMapper)
-//}
-//
-//@After
-//fun closeConnection()
-//{
-//    embeddedMongoDb.stop()
-//}
-//
-//private fun startMongoDb()
-//{
-//    val rand= Random()
-//    val n=rand.nextInt(99)+9900
-//    embeddedMongoDb = EmbeddedMongoDb(n)
-//    embeddedMongoDb.start()
-//}
-//
-//@Test
-//fun testCreateNewUser()
-//{
-//    val user=testDataSource.getUser()
-//    val userFromDb: User = classunderTest.createNewUser(user)
-//    println("user From =:$userFromDb")
-//    Assert.assertNotNull(userFromDb.getName())
-//    Assert.assertNotNull(user.getEmail())
-//    Assert.assertNotNull(user.getContact())
-//}
-//
-//@Test
-//fun testGetUserRecordByuuid() {
-//    val fakeUser=testDataSource.getUser()
-//    val userFromDb: User = classunderTest.createNewUser(fakeUser)
-//    val user=classunderTest.getUserRecordByuuid(userFromDb.getUuid().toString())
-//    println("responce= :$user")
-//}
-//
-//@Test
-//fun testDeleteUserRecordByuuid()
-//{
-//
-//    val response=classunderTest.deleteUserRecordByuuid(uuid)
-//    println("Response=:$response")
-//    Assert.assertNotNull(response)
-//
-//}
-//
-//@Test
-//fun testUpdateUserData()
-//{
-//    val user=testDataSource.getUser()
-//    classunderTest.updateUserData(uuid,user)
-//    Assert.assertNotNull(user.getName())
-//    Assert.assertNotNull((user.getEmail()))
-//    Assert.assertNotNull(user.getContact())
-//}
