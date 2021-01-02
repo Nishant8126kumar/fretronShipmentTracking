@@ -1,0 +1,6 @@
+[submodule "NodeApi"]
+	path = NodeApi
+	url = https://github.com/Nishant8126kumar/NodeApi.git
+[submodule "customeKafkaSerializeDeserialize"]
+	path = customeKafkaSerializeDeserialize
+	url = https://github.com/Nishant8126kumar/customeKafkaSerializeDeserialize.git

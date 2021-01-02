@@ -8,12 +8,12 @@ import repositories.ShipmentRepository
 import javax.inject.Named
 
 
-@Module
+//@Module
 class ShipmentRepositoyModule {
 
-    @Provides
-    fun provideShipmentRepository(objectMapper: ObjectMapper,@Named("mongoDatabase") mongoDatabase: MongoDatabase):ShipmentRepository
-    {
-        return ShipmentRepository(objectMapper,mongoDatabase)
-    }
+//    @Provides
+//    fun provideShipmentRepository(objectMapper: ObjectMapper,@Named("mongoDatabase") mongoDatabase: MongoDatabase):ShipmentRepository
+//    {
+//        return ShipmentRepository(objectMapper,mongoDatabase)
+//    }
 }

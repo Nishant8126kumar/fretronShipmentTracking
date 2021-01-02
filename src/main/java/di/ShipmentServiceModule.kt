@@ -2,8 +2,11 @@ package di
 
 import dagger.Module
 import dagger.Provides
+import org.apache.kafka.clients.producer.KafkaProducer
+import repositories.Shipment
 import repositories.ShipmentRepository
 import services.ShipmentService
+import services.gateway.KafkaImpl
 import javax.inject.Named
 
 
@@ -11,8 +14,8 @@ import javax.inject.Named
 class ShipmentServiceModule {
 
     @Provides
-    fun provideService(shipmentRepository: ShipmentRepository):ShipmentService
+    fun provideService(shipmentRepository: ShipmentRepository,kafka:KafkaImpl):ShipmentService
     {
-        return ShipmentService(shipmentRepository)
+        return ShipmentService(shipmentRepository,kafka)
     }
 }

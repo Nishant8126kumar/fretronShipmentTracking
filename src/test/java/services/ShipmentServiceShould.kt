@@ -1,5 +1,4 @@
 package services
-
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.mock
 import com.nhaarman.mockito_kotlin.verify
@@ -9,18 +8,21 @@ import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import repositories.ShipmentRepository
+import services.gateway.KafkaImpl
 
 class ShipmentServiceShould {
 
     lateinit var shipmentRepository: ShipmentRepository
     lateinit var shipmentService: ShipmentService
+    lateinit var kafka: KafkaImpl
     private val testDataSource=TestDataSource()
     lateinit var shipmentNumber:String
     @Before
     fun configure()
     {
         shipmentRepository=mock()
-        shipmentService= ShipmentService(shipmentRepository)
+        kafka=mock()
+        shipmentService= ShipmentService(shipmentRepository,kafka)
     }
 
     @Test

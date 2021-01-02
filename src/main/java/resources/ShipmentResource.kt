@@ -10,7 +10,6 @@ import javax.ws.rs.core.Response
 @Path("/fretron/v1")
 class ShipmentResource @Inject constructor(private val shipmentService: ShipmentService,private val objectMapper: ObjectMapper) {
 
-
     @GET
     @Path("/shipment/{shipmentNumber}")
     @Produces(MediaType.APPLICATION_JSON)
