@@ -20,6 +20,7 @@ class Consumer {
         properties[ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG]=KAFKA_DESERIALIZER
         properties[ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG]=StringDeserializer::class.java
         properties[ConsumerConfig.GROUP_ID_CONFIG]=KAFKA_GROUP
+        properties["auto.offset.reset"] = "latest"
         val kafkaConsumer=KafkaConsumer<String,String>(properties)
         val list= arrayListOf<String>()
         list.add(KAFKA_TOPIC)

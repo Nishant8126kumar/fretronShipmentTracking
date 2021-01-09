@@ -24,7 +24,6 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
         }
     }
 
-
     @Throws(MongoDbException::class)
     fun getShipmentByShipmentNumber(shipmentNumber: String): Shipment {
         val basicDBObject = BasicDBObject()
@@ -36,7 +35,6 @@ class ShipmentRepository @Inject constructor(private val objectMapper: ObjectMap
             doc.remove("_id")
             val json = JSON.serialize(doc)
             val data=objectMapper.readValue(json, Shipment::class.java)
-            println("data ok=:$data")
             return data
         } else {
             throw MongoDbException("No record found on this shipment Number $shipmentNumber")

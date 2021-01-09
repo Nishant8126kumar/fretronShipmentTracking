@@ -1,7 +1,5 @@
 package basicPractise
 
-import com.mongodb.util.JSON
-import netscape.javascript.JSObject
 import org.codehaus.jackson.map.ObjectMapper
 import repositories.Shipment
 import javax.ws.rs.core.Response
